@@ -1,0 +1,19 @@
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>-->
+<!-- Modal -->
+<div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0 ">
+            <div class="modal-header rounded-0 bg bf">
+                <h5 class="modal-title font-p my-0" style="font-size: 1.7rem!important;" id="exampleModalCenterTitle">Altere os dados!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="color: #fff!important;text-shadow: 0 1px 0 #000!important;">&times;</span>
+          </button>
+            </div>
+            <div class="modal-body p-3">
+                <app-cadastro-produto [produto]="produto" (formSubmitted)="submited()"></app-cadastro-produto>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+/*configuração do dimensionamento do jumbontron*/
+.title-jumbo {
+  font-family: Cookie, Helvetica, Arial, sans-serif;
+}
+
+.p-ju {
+  margin-bottom: 0!important;
+  min-height: 100vh;
+  background-image: url("../../assets/imgs/land-page-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  .p-co{
+    padding-top: calc(100vh/2 - 177.1px);
+
+    .p-fo {
+      text-shadow: 4px 3px 6px #000000;
+    }
+  }
+}
+
+.style-p {
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+
+.style-img {
+  max-height: 400px!important;
+}
+
+

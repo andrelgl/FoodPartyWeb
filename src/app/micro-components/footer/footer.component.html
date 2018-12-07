@@ -1,0 +1,59 @@
+<div style="background-color:#F44336!important">
+    <div class="container ">
+        <div class="row">
+
+            <!-- Apresentação -->
+            <div class="col-sm-12 col-md-4 p-4 text-white">
+                <h2 class="title-footer">O Food Party...</h2>
+                <hr class="my-3 bg-white">
+                <p class="text-justify">
+                    Food Party é uma plataforma baseada na divisão, podemos dizer que foi criada para que, consumidores adquirissem mercadorias que normalmente não poderiam. Com esta premissa foi criada a possibilidade de cadastro empresárias onde a empresa entra com seus
+                    produtos e estabelecem suas regras e promoções, possibilitando que um grupo de usuários possam comprar em conjunto.
+                </p>
+            </div>
+
+            <!-- Equipe -->
+            <div class="col-sm-12 col-md-4 p-4 text-white">
+                <h2 class="title-footer">Equipe!</h2>
+                <hr class="my-3 bg-white">
+                <div class="row">
+                    <div class="col" *ngFor="let p of equipe">
+                        <div class="mx-auto card mb-1 border-0" style="background-color:#F44336!important">
+                            <a [href]="p.github" class="mx-auto"><img [src]="p.img" class="card-img-top rounded-circle img-fluid" style="max-width: 50px;"></a>
+                            <div class="card-body py-2">
+                                <a [href]="p.github" class="mx-auto text-white">
+                                    <h4 class="text-center title-footer">{{p.title}}</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tecnologina usada -->
+            <div class="col-sm-12 col-md-4 p-4 text-white">
+                <h2 class="title-footer">Tecnologias utilizadas</h2>
+                <hr class="my-3 bg-white">
+                <div class="row">
+                    <div class="col-6 col-lg-4 py-2 d-flex align-items-center" *ngFor="let p of tecnologia">
+                        <div class="mx-auto mb-2" style="background-color:#F44336!important">
+                            <a [href]="p.site"><img [src]="p.img" class="card-img-top img-fluid" style="max-width: 100px;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Copyright -->
+<div style="background-color: #D32F2F!important;">
+    <div class="container py-1 py-md-2">
+        <div class="row">
+            <div class="col small text-center text-white">
+                &copy; {{ getYear() }} - Food Party - Todos os direitos reservados.
+            </div>
+        </div>
+    </div>
+</div>

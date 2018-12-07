@@ -1,0 +1,20 @@
+.p-di {
+    padding-top: 56px;
+}
+
+.p-pa {
+    min-height: calc(100vh - 56px)!important;
+}
+
+.title {
+    font-family: Cookie, Helvetica, Arial, sans-serif;
+}
+
+:host {
+    .row-bg-gradient {
+        background-image: url("../../assets/imgs/land-page-img.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}

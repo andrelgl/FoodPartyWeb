@@ -1,0 +1,27 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import '../../node_modules/bootstrap/scss/mixins';
+@import "../assets/fonts/cookie-regular/stylesheet.css";
+@import "custom/parallaxe";
+@import "custom/toaster";
+@import "../assets/icons/open-iconic-master/font/css/open-iconic-bootstrap.css";
+
+.navbar-toggler {
+    &.active,
+    &:active,
+    &:focus {
+        outline: none;
+        box-shadow: transparent;
+    }
+}
+
+.font-p {
+    font-family: Cookie, Helvetica, Arial, sans-serif;
+}
+
+.bg {
+  background-color: #D32F2F!important;
+  &.bf {
+      color: white!important;
+  }
+}

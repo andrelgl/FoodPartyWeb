@@ -1,0 +1,40 @@
+<div class="wrapper d-flex w-100 h-min-100 p-di">
+
+    <div class="sidebar" [ngClass]="{'mdWidth': !mdWidth, 'active': !!active}">
+        <div class="backdrop animated fadeIn" [hidden]="!active" (click)="active=!active"></div>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col py-3 text-center">
+                        <img [src]="(this.usuario?.data?.image_base64 ? this.usuario.data.image_base64 : '../../assets/imgs/user.jpg')" class="rounded mx-auto d-block" alt="logo image" style="max-width: 150px;">
+                        <h1 class="font-p mt-1 mb-0">{{usuario?.data?.name}}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="list-group list-group-flush border-bottom list">
+                <a [routerLink]="['/lo/dashboard', {outlets: {dashboard: 'sobre'}}]" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <li><span class="oi oi-bar-chart mr-3" style="color: #D32F2F!important;"></span> Lista de Produtos</li>
+                </a>
+                <a [routerLink]="['/lo/dashboard', {outlets: {dashboard: 'cadastrar'}}]" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <li><span class="oi oi-pencil mr-3" style="color: #D32F2F!important;"></span> Cadastrar Produtos</li>
+                </a>
+                <a [routerLink]="['/lo/dashboard', {outlets: {dashboard: 'perfil'}}]" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <li><span class="oi oi-person mr-3" style="color: #D32F2F!important;"></span> Perfil Empresa</li>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main flex-1 border-left">
+        <nav class="navbar sticky-top navbar-light bg-transparent span">
+            <a class="navbar-brand border rounded-circle btn p-1 d-block d-md-none" (click)="active=!active">
+                <span class="oi oi-arrow-circle-left mb-0" *ngIf="active" style="color: #D32F2F!important;"></span>
+                <span class="oi oi-arrow-circle-right mb-0" *ngIf="!active" style="color: #D32F2F!important;"></span>
+            </a>
+        </nav>
+        <div class="container">
+            <router-outlet name='dashboard' (activate)="onRouterOutletActivate($event)" (deactivate)='onRouterOutletDeactivate($event)' ></router-outlet>
+        </div>
+    </div>
+</div>
+<app-modal-produto #modalProduto (onDone)="modalProdutoConcluido()"></app-modal-produto>

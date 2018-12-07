@@ -1,0 +1,15 @@
+<div class="container-fluid d-flex flex-column p-di">
+    <div class="row d-flex justify-content-center justify-content-md-end flex-1 row-bg-gradient p-pa">
+
+        <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-7 col d-flex flex-column py-3 bg-white" style="max-width:650px">
+            <div class="flex-1">
+
+                <h1 class="border-bottom pb-2 title">Dados da Empresa</h1>
+
+                <app-form-empresa (formSubmitted)="submited()" (formSubmitError)="errorSubmited($event)" ></app-form-empresa>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,93 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light bg">
+    <a class="navbar-brand title py-0" routerLink="/home">
+        <img src="../../../assets/imgs/logo.png" width="30" height="30" class="d-inline-block" alt=""> {{ title }}</a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mr-4">
+            <li class="nav-item active mr-4">
+                <a class="nav-link" routerLink="/home">Home<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active mr-4" *ngIf="check | async">
+                <a class="nav-link" routerLink="/lo/dashboard">Dashboard<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item mr-4" *ngIf="!(check | async)">
+                <a class="nav-link" data-toggle="modal" data-target="#ModalCadastro">Cadastre-se<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item mr-4" *ngIf="!(check | async)">
+                <a class="nav-link" data-toggle="modal" data-target="#ModalLogin">Login<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item" *ngIf="check | async">
+                <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+
+        </ul>
+    </div>
+
+</nav>
+
+
+<div class="modal fade" id="ModalCadastro" tabindex="-1" role="dialog" aria-labelledby="CadastroModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-header rounded-0 bg bf">
+                <h5 class="modal-title" id="CadastroModalLabel">Crie sua conta!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: #fff!important;text-shadow: 0 1px 0 #000!important;">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form" (ngSubmit)="form.valid && submit(form.value)">
+                    <div class="form-group">
+                        <label for="email">E-mail <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" formControlName="email" id="email">
+                        <small class="form-error" *ngFor="let e of getErrors(email)">{{e + ' '}}</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha  <span class="text-danger">*</span></label>
+                        <input type="password" class="form-control mb-1" formControlName="password1" id="password">
+                        <label for="passwordConfirmation">Confirme sua Senha <span class="text-danger">*</span></label>
+                        <input type="password" class="form-control" formControlName="password2" id="passwordConfirmation">
+                        <small class="form-error mt-1" *ngFor="let e of getErrors(password1, password2)">{{e + ' '}}</small>
+                    </div>
+                    <div class="text-right">
+                        <button type="button" class="btn btn-danger mr-2" data-dismiss="modal">Cacelar</button>
+                        <button type="submit" class="btn btn-success form-check">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalLogin" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-header rounded-0 bg bf">
+                <h5 class="modal-title" id="LoginModalLabel">Entrar!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: #fff!important;text-shadow: 0 1px 0 #000!important;">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && login(loginForm.value)">
+                    <div class="form-group">
+                        <label for="emailLogin">E-mail</label>
+                        <input type="email" class="form-control" formControlName="emailLogin" id="emailLogin">
+                        <small class="form-error" *ngFor="let e of getErrors(emailLogin)">{{e + ' '}}</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordLogin">Senha</label>
+                        <input type="password" class="form-control mb-1" formControlName="passwordLogin" id="passwordLogin">
+                        <small class="form-error mt-1" *ngFor="let e of getErrors(passwordLogin)">{{e + ' '}}</small>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success form-check">Entrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

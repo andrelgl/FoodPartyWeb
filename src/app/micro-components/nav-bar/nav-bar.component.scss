@@ -1,0 +1,13 @@
+.title {
+    font-family: Cookie, Helvetica, Arial, sans-serif;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 1.7rem;
+}
+
+.bg {
+    background-color: #D32F2F!important;
+    &.bf {
+        color: white!important;
+    }
+}

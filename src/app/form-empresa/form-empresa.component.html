@@ -1,0 +1,139 @@
+<form [formGroup]="form" (ngSubmit)="form.valid && submit(form.value)">
+
+  <div class="row form-row">
+
+      <div class="col-12 col-md-8">
+          <div class="form-group">
+              <label for="name">Nome Fantasia <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" formControlName="name" id="name" />
+              <small class="form-error" *ngFor="let e of getErrors(name)">{{e + ' '}}</small>
+          </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+          <div class="form-group">
+              <label for="cnpj">Cnpj <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" formControlName="cnpj" id="cnpj" />
+              <small class="form-error" *ngFor="let e of getErrors(cnpj)">{{e + ' '}}</small>
+          </div>
+      </div>
+
+      <div class="col-12 col-md-8">
+          <div class="form-group">
+              <label for="website">Site <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" formControlName="website" id="website" />
+          </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+          <div class="form-group">
+              <label for="zip_code">Cep <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" formControlName="zip_code" id="zip_code" />
+              <small class="form-error" *ngFor="let e of getErrors(zip_code)">{{e + ' '}}</small>
+          </div>
+      </div>
+
+      <div class="col-12">
+          <div class="form-group">
+              <label for="street">Rua <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" formControlName="street" id="street" />
+              <small class="form-error" *ngFor="let e of getErrors(street)">{{e + ' '}}</small>
+          </div>
+      </div>
+
+      <div class="col-12 col-md-5">
+          <div class="form-group">
+              <label for="number">Número <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" formControlName="number" id="number" />
+              <small class="form-error" *ngFor="let e of getErrors(number)">{{e + ' '}}</small>
+          </div>
+      </div>
+
+      <div class="col-12 col-md-7">
+          <div class="form-group">
+              <label for="phone">Telefone</label>
+              <input type="text" class="form-control" formControlName="phone" id="phone" />
+          </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+          <div class="form-group">
+              <label for="neighbourhood">Bairro</label>
+              <input type="text" class="form-control" formControlName="neighbourhood" id="neighbourhood" />
+              <small class="form-error" *ngFor="let e of getErrors(neighbourhood)">{{e + ' '}}</small>
+          </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+          <div class="form-group">
+              <label for="city">Cidade</label>
+              <input type="text" class="form-control" formControlName="city" id="city" />
+              <small class="form-error" *ngFor="let e of getErrors(city)">{{e + ' '}}</small>
+          </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+          <div class="form-group">
+              <label for="state">Estado</label>
+              <input type="text" class="form-control" formControlName="state" id="state" />
+              <small class="form-error" *ngFor="let e of getErrors(state)">{{e + ' '}}</small>
+          </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+          <div class="form-group">
+              <label for="country">País</label>
+              <select class="form-control" formControlName="country" id="country">
+                  <option value="" disabled selected>selecione o país</option>
+                  <option value="AR">Argentina</option>
+                  <option value="BR">Brasil</option>
+                  <option value="CL">Chile</option>
+                  <option value="CO">Colômbia</option>
+                  <option value="CR">Costa Rica</option>
+                  <option value="MX">México</option>
+                  <option value="NI">Nicarágua</option>
+                  <option value="PA">Panamá</option>
+                  <option value="PE">Peru</option>
+                  <option value="PR">Porto Rico</option>
+                  <option value="PY">Paraguai</option>
+                  <option value="US">Estados Unidos</option>
+              </select>
+              <small class="form-error" *ngFor="let e of getErrors(country)">{{e + ' '}}</small>
+          </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+          <div class="form-group">
+              <label for="type">Tipo do Estabelecimento <span class="text-danger">*</span></label>
+              <select class="form-control" formControlName="type" id="type">
+                  <option value="" disabled selected>selecione o tipo</option>
+                  <option value="BA">Bar</option>
+                  <option value="FD">Fast Food</option>
+                  <option value="LA">Lanchonete</option>
+                  <option value="PI">Pizzaria</option>
+                  <option value="PU">Pub</option>
+                  <option value="RE">Restaurante</option>
+              </select>
+          </div>
+      </div>
+      <div class="col-12 col-md-6">
+          <form>
+              <div class="form-group">
+                  <label for="logo">Logo da Empresa</label>
+                  <input type="file" class="form-control-file mt-1" (change)="onFileChange($event)" id="logo">
+              </div>
+          </form>
+      </div>
+      <div class="col-12">
+          <div class="form-group mb-0">
+              <label for="description">Detalhes do estabelecimento</label>
+              <textarea type="text" class="form-control" formControlName="description" id="description" rows="2"></textarea>
+          </div>
+      </div>
+  </div>
+
+  <div class="form-group text-right pt-2">
+      <button type="submit" class="btn btn-success" (click)="form.submitted=true" id="submit">Registrar</button>
+  </div>
+
+</form>
